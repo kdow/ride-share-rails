@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 
+  rating: 1
+  cost: 1
+
+two:
+  date: 
+  rating: 1
+  cost: 1
