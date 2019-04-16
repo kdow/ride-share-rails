@@ -1,0 +1,11 @@
+<h1>Passengers</h1>
+
+<ul>
+  <% @passengers.each do |pass| %>
+    <li>
+      <%= link_to "#{pass.name}", passenger_path(pass.id) %>
+      <%= link_to "Edit", edit_passenger_path(pass.id) %>
+      <%= link_to "Delete", passenger_path(pass.id), method: :delete, data: { confirm: "Are you sure you want to delete this passenger?"} %>
+    </li>
+  <% end %>
+</ul>
