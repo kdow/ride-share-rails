@@ -1,0 +1,6 @@
+<h2> <%= @driver.name %> <h2>
+
+<p> Phone: <%= @driver.phone_num %> </p>
+
+<%= link_to "Edit", edit_driver_path(@driver.id) %>
+<%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure you want to delete this driver?"} %>

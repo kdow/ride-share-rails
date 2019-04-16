@@ -53,7 +53,7 @@ class PassengersController < ApplicationController
   def destroy
     passenger = Passenger.find_by(id: params[:id])
 
-    unless task
+    unless passenger
       head :not_found
       return
     end
