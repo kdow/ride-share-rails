@@ -1,0 +1,9 @@
+<h2>Edit Trip <%= @trip.id %></h2>
+
+<%= form_with model: @trip do |f| %>
+  
+  <%= f.label :date, "Date" %>
+  <%= f.date_select %> 
+
+  <%= f.submit action_name %>
+<% end %>
