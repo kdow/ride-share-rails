@@ -44,6 +44,10 @@ class PassengersController < ApplicationController
       redirect_to passengers_path
       return
     end
+
+    passenger.update(passenger_params)
+
+    redirect_to passenger_path(passenger.id)
   end
 
   def destroy
