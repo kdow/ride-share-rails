@@ -10,6 +10,28 @@
   </head>
 
   <body>
-    <%= yield %>
+      <header>
+      <h1>Ada Rideshare</h1>
+      <nav>
+        <ul>
+          <li>
+            <%= link_to "Driver List", drivers_path%>
+          </li>
+          <li>
+            <%= link_to "Add a Driver", new_driver_path%>
+          </li>
+          <li>
+            <%= link_to "Passenger List", passengers_path%>
+          </li>
+          <li>
+            <%= link_to "Add a Passenger", new_passenger_path%>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
