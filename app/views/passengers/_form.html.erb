@@ -1,3 +1,19 @@
+<% if @passenger.errors.messages.any? %>
+  <section>
+  There were some issues with your submission.
+
+    <ul>
+      <% @passenger.errors.messages.each do |column, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+              <%= column %>: <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_with model: @passenger do |f| %>
   
   <%= f.label :name, "Passenger Name" %>
