@@ -12,11 +12,14 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(trip_params)
+    trip_cost = rand(1...100)
+    trip_driver = (Driver.all).sample.id
+
+    trip = Trip.new(date: Date.current, cost: trip_cost, passenger_id: params[:passenger_id], driver_id: trip_driver)
 
     trip.save
 
-    redirect_to trips_path
+    redirect_to passenger_path(params[:passenger_id])
   end
 
   def show
