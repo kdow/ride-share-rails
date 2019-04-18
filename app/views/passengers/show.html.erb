@@ -22,15 +22,14 @@
       <% driver = Driver.find(trip.driver_id) %>
     <% end %>
     <tr>
-      <td><%= trip.id %></td>
+      <td>trip.id</td>
       <td><%= trip.date %></td>
       <% if trip.driver_id %>
         <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
       <% else %>
         <td>Driver no longer exists</td>
       <% end %>
-      <% end %>
-      <td><%= trip.cost %></td>
+      <td><%= "$""#{trip.cost/100.00}" %></td>
       <td><%= trip.rating %></td>
       <td>Delete</td>
       <td>Edit</td>

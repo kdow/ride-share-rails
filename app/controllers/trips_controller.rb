@@ -12,7 +12,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip_cost = rand(1...100)
+    trip_cost = rand(100...10000)
     trip_driver = (Driver.all).sample.id
 
     trip = Trip.new(date: Date.current, cost: trip_cost, passenger_id: params[:passenger_id], driver_id: trip_driver)
