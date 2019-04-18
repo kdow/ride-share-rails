@@ -27,7 +27,7 @@
       <% else %>
         <td>Passenger no longer exists</td>
       <% end %>
-      <td><%= "$""#{trip.cost/100.00}" %></td>
+      <td><%= "$""#{'%.2f'% (trip.cost / 100.00)}" %></td>
       <td><%= trip.rating %></td>
       <td>Delete</td>
       <td>Edit</td>
