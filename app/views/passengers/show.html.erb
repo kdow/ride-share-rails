@@ -9,6 +9,7 @@
 
 <%= button_to "Request Trip", passenger_trips_path(@passenger.id) %>
 
+<h2> <%= @passenger.name%>'s Trips </h2>
 <table>
   <tr>
     <th>ID</th>
@@ -24,7 +25,7 @@
       <% driver = Driver.find(trip.driver_id) %>
     <% end %>
     <tr>
-      <td><%= trip.id %></td>
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
       <td><%= trip.date %></td>
       <% if trip.driver_id %>
         <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
