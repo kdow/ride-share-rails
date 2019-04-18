@@ -1,11 +1,11 @@
 <h2> <%= @passenger.name %> <h2>
 
+<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+<%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete this passenger?"} %>
+
 <p> Phone: <%= @passenger.phone_num %> </p>
 
 <%= button_to "Request Trip", passenger_trips_path(@passenger.id) %>
-
-<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-<%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete this passenger?"} %>
 
 <table>
   <tr>
@@ -22,7 +22,7 @@
       <% driver = Driver.find(trip.driver_id) %>
     <% end %>
     <tr>
-      <td>trip.id</td>
+      <td><%= trip.id %></td>
       <td><%= trip.date %></td>
       <% if trip.driver_id %>
         <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
