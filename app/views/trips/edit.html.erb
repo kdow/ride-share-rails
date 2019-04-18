@@ -3,7 +3,28 @@
 <%= form_with model: @trip do |f| %>
   
   <%= f.label :date, "Date" %>
-  <%= f.date_select %> 
+  <%= f.date_select(:date) %>
 
-  <%= f.submit action_name %>
+  <%= f.label :rating, "Rating" %>
+  <%= f.number_field :rating, min: 1.0, max: 5.0, step: 1 %>
+
+  <%= f.label :cost, "Cost" %>
+  <%= f.number_field :cost %>
+
+  <%= f.label :passenger_id, "Passenger" %>
+  <%= f.select(:passenger_id) do %>
+    <% (Passenger.all).each do |pass| %>
+      <%= content_tag(:option, pass.name, value: pass.id) %>
+    <% end %>
+  <% end %>
+
+  <%= f.label :driver_id, "Driver" %>
+  <%= f.select(:driver_id) do %>
+    <% (Driver.all).each do |driv| %>
+      <%= content_tag(:option, driv.name, value: driv.id) %>
+    <% end %>
+  <% end %>
+
+  <%= f.submit "Update Trip" %>
+  
 <% end %>
