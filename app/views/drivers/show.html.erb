@@ -16,11 +16,15 @@
     <th>Edit</th>
   </tr>
   <% @driver.trips.each do |trip| %>
-    <% passenger = Passenger.find(trip.passenger_id) %>
+    <% if trip.passenger_id %>
+      <% passenger = Passenger.find(trip.passenger_id) %>
+    <% end %>
     <tr>
       <td><%= trip.id %></td>
       <td><%= trip.date %></td>
-      <td><%= link_to "#{passenger.name}", passenger_path(passenger.id) %></td>
+      <% if trip.passenger_id %>
+        <td><%= link_to "#{passenger.name}", passenger_path(passenger.id) %></td>
+      <% end %>
       <td><%= trip.cost %></td>
       <td><%= trip.rating %></td>
       <td>Delete</td>
