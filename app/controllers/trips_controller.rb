@@ -43,14 +43,30 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find_by(id: params[:id])
+    trip_id = params[:id]
 
-    unless trip
+    @trip = Trip.find(trip_id)
+
+    unless @trip
       redirect_to root_path
       return
     end
 
-    trip.update(trip_params)
+    @trip.update(trip_params)
+
+    redirect_to trip_path(trip)
+  end
+
+  def add_rating
+    trip = Trip.find(params[:id])
+
+    trip.rating = params[:rating]
+
+    if trip.passenger_id
+      trip.update!({id: trip.id, rating: params[:rating]})
+    else
+      redirect_to trip_path(trip)
+    end
 
     redirect_to trip_path(trip)
   end

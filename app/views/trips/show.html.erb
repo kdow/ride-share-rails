@@ -1,6 +1,22 @@
-<h2> <%= @passenger.name %> <h2>
+<h2> Trip <%= @trip.id %> <h2>
 
-<p> Phone: <%= @passenger.phone_num %> </p>
+<%= form_with url: add_trip_rating_path(@trip.id), method: :patch do |f| %>
+  <% if !@trip.rating && (@trip.passenger_id && @trip.driver_id) %>
+    <%# <%= f.label :rating %>
+    <%= f.number_field :rating, min: 1.0, max: 5.0, step: 1 %>
+    <%= f.submit "Rate This Trip" %> 
+  <% end %>
+<% end %>
 
-<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-<%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete this passenger?"} %>
+<% if !@trip.rating && !@trip.passenger_id %>
+  <p> Note: You cannot rate a trip after a passenger has been deleted.
+<% elsif !@trip.rating && !@trip.driver_id %>
+  <p> Note: You cannot rate a trip after a driver has been deleted.
+<% elsif @trip.rating%>
+  <p> Trip Rating: <%= @trip.rating %> </p>
+<% end %>
+
+<br>
+<br>
+<%= link_to "Edit Trip #{@trip.id}", edit_trip_path(@trip.id) %>
+<%= link_to "Delete Trip #{@trip.id}", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete this trip?"} %>
