@@ -29,8 +29,6 @@
     <th>Driver</th>
     <th>Price</th>
     <th>Rating</th>
-    <th>Delete</th>
-    <th>Edit</th>
   </tr>
     <% if @trip.passenger_id %>
       <% passenger = Passenger.find(@trip.passenger_id) %>
@@ -53,7 +51,5 @@
       <% end %>
       <td><%= "$""#{'%.2f' % (@trip.cost / 100.00)}" %></td>
       <td><%= @trip.rating %></td>
-      <td>Delete</td>
-      <td>Edit</td>
     </tr>
 </table>
