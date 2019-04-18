@@ -63,6 +63,11 @@ class PassengersController < ApplicationController
       return
     end
 
+    # passenger.trips.each do |trip|
+    #   trip.passenger_id = trip.passenger_id.to_i
+    #   trip.save
+    # end
+
     passenger.destroy
 
     redirect_to passengers_path
