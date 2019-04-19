@@ -45,6 +45,7 @@ describe DriversController do
   describe "update" do
     it "can update an existing driver" do
       test_driver = driver
+
       driver_data = {
         driver: {
           name: "new name",
@@ -52,7 +53,7 @@ describe DriversController do
       }
 
       expect {
-        patch driver_path(driver.id), params: driver_data
+        patch driver_path(test_driver.id), params: driver_data
       }.wont_change "Driver.count"
 
       must_respond_with :redirect
