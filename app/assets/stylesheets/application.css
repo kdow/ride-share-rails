@@ -95,7 +95,8 @@ table td a, table td a:visited {
 }
 
 td :not(.edit), td :not(.delete) {
-  padding: 20px;
+  margin: 15px;
+  padding: 5px;
 }
 
 .edit, .delete {
