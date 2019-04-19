@@ -15,7 +15,7 @@ class TripsController < ApplicationController
     trip_cost = rand(100...10000)
     # trip_driver = (Driver.all).sample.id
     trip_driver = Driver.find_by(available: true)
-    toggle_available_driver_path(trip_driver.id)
+    trip_driver.go_unavailable
     # trip_driver.go_unavailable
     # trip_driver.available = false
     # trip_driver.save
