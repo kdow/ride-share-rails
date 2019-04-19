@@ -6,8 +6,14 @@
 <p> Average rating: <%= @driver.average_rating %> </p>
 <p> VIN: <%= @driver.vin %> </p>
 
-<%= button_to (@driver.available ? "Go available" : "Go unavailable"), toggle_available_driver_path(@driver), method: :patch %>
 
+<%= form_with url: toggle_available_driver_path(@driver.id), method: :patch do |f| %>
+  <% if @driver.available == true %>
+    <%= f.submit "Go unavailable" %> 
+  <% else %>
+    <%= f.submit "Go available" %> 
+  <% end %>
+<% end %>
 
 <h2> <%= @driver.name%>'s Trips </h2>
 

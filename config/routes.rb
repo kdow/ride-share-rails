@@ -9,12 +9,6 @@ Rails.application.routes.draw do
     resources :trips, only: [:index]
   end
 
-  # resources :drivers do
-  #   member do
-  #     get :toggle_available
-  #   end
-  # end
-
   resources :passengers
   resources :drivers
   resources :trips, except: [:new, :create]
