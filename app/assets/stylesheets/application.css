@@ -27,6 +27,11 @@
    text-decoration: none;
    color: black;
  }
+
+ a:hover {
+  color: #D07DAB;
+  cursor: pointer;
+}
  
  nav ul {
    background: darkblue;
@@ -87,11 +92,6 @@ nav ul li ul li {
 table td a, table td a:visited {
   color: blue;
   text-align: center;
-}
-
-table td a:hover {
-  color: #D07DAB;
-  cursor: pointer;
 }
 
 td :not(.edit), td :not(.delete) {
