@@ -38,23 +38,23 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: trip_id)
 
     unless @trip
-      redirect_to trip_path
+      redirect_to trips_path
     end
   end
 
   def update
-    trip_id = params[:id]
-
-    @trip = Trip.find(trip_id)
+    @trip = Trip.find_by(id: params[:id])
 
     unless @trip
-      redirect_to root_path
+      head :not_found
       return
     end
 
-    @trip.update(trip_params)
-
-    redirect_to trip_path(@trip)
+    if @trip.update(trip_params)
+      redirect_to trip_path(@trip)
+    else
+      render :edit, status: :bad_request
+    end
   end
 
   def add_rating
