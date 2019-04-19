@@ -11,23 +11,38 @@
 
   <body>
       <header>
-      <h1>Ada Rideshare</h1>
-      <nav>
-        <ul>
-          <li>
-            <%= link_to "Driver List", drivers_path%>
-          </li>
-          <li>
-            <%= link_to "Add a Driver", new_driver_path%>
-          </li>
-          <li>
-            <%= link_to "Passenger List", passengers_path%>
-          </li>
-          <li>
-            <%= link_to "Add a Passenger", new_passenger_path%>
-          </li>
-        </ul>
-      </nav>
+        <h1>Ada Rideshare</h1>
+        <nav>
+          <ul>
+            <li class="nav-labels">Drivers
+              <ul>
+                <li>
+                  <%= link_to "Driver List", drivers_path%>
+                </li>
+                <li>
+                  <%= link_to "Add a Driver", new_driver_path%>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-labels">Passengers
+              <ul>
+                <li>
+                  <%= link_to "Passenger List", passengers_path%>
+                </li>
+                <li>
+                  <%= link_to "Add a Passenger", new_passenger_path%>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-labels">Trips
+              <ul>
+                <li>
+                  <%= link_to "Trip List", trips_path%>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
     </header>
 
     <main>
