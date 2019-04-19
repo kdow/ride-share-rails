@@ -46,13 +46,13 @@ describe DriversController do
     it "can update an existing driver" do
       test_driver = driver
       driver_data = {
-        task: {
+        driver: {
           name: "new name",
         },
       }
 
       expect {
-        patch driver_path(test_driver), params: driver_data
+        patch driver_path(driver.id), params: driver_data
       }.wont_change "Driver.count"
 
       must_respond_with :redirect
