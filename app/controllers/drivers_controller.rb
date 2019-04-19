@@ -68,7 +68,7 @@ class DriversController < ApplicationController
   end
 
   def toggle_available
-    driver = Driver.find(params[:id])
+    driver = Driver.find_by(id: params[:id])
 
     unless driver
       head :not_found
