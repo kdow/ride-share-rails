@@ -34,7 +34,7 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: driver_id)
 
     unless @driver
-      redirect_to driver_path
+      redirect_to drivers_path
     end
   end
 
