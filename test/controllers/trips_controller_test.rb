@@ -3,7 +3,7 @@ require "test_helper"
 describe TripsController do
   before do
     @pass = Passenger.create!(name: "sample passenger", phone_num: "9999999999")
-    @driver = Driver.create!(name: "sample driver", vin: "f09ahw3u43087fif097f")
+    @driver = Driver.create!(name: "sample driver", vin: "f09ahw3u43087fif097f", available: true)
     @trip = Trip.create!(date: Date.current, cost: 2197, passenger_id: @pass.id, driver_id: @driver.id)
   end
 

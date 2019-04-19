@@ -128,4 +128,47 @@ describe DriversController do
       must_respond_with :not_found
     end
   end
+
+  describe "toggle_available" do
+    it "makes a driver available who was unavailable" do
+      d = Driver.create!(name: "Freddie Mercury", vin: "555XXX111", available: false)
+
+      patch toggle_available_driver_path(d.id)
+      d.reload
+
+      expect(d.available).must_equal true
+    end
+
+    it "makes a driver available whose availability was nil" do
+      d = Driver.create!(name: "Freddie Mercury", vin: "555XXX111")
+
+      patch toggle_available_driver_path(d.id)
+      d.reload
+
+      expect(d.available).must_equal true
+    end
+
+    it "makes an availble driver unavailable" do
+      d = Driver.create!(name: "Freddie Mercury", vin: "555XXX111", available: true)
+
+      patch toggle_available_driver_path(d.id)
+      d.reload
+
+      expect(d.available).must_equal false
+    end
+
+    it "will respond with a 404 for an unavailable driver" do
+      patch toggle_available_driver_path(-1)
+
+      must_respond_with :not_found
+    end
+  end
+
+  describe "not_found" do
+    it "can load not_found page" do
+      get driver_not_found_path
+
+      must_respond_with :success
+    end
+  end
 end
