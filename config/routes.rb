@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :trips, only: [:index, :create]
   end
 
+  get "drivers/unavailable", to: "drivers#not_found", as: :driver_not_found
+
   resources :drivers do
     resources :trips, only: [:index]
   end

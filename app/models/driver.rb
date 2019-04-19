@@ -24,14 +24,8 @@ class Driver < ApplicationRecord
     end
   end
 
-  def go_available
-    self.available = true
-    self.save
-  end
-
   def go_unavailable
     self.available = false
     self.save
   end
-  
 end

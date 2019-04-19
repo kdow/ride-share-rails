@@ -81,6 +81,9 @@ class DriversController < ApplicationController
     redirect_to driver_path(driver)
   end
 
+  def not_found
+  end
+
   private
 
   def driver_params

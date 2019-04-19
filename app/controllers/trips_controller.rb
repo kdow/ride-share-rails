@@ -13,12 +13,13 @@ class TripsController < ApplicationController
 
   def create
     trip_cost = rand(100...10000)
-    # trip_driver = (Driver.all).sample.id
     trip_driver = Driver.find_by(available: true)
+    if trip_driver == nil
+      redirect_to driver_not_found_path
+      return
+    end
+
     trip_driver.go_unavailable
-    # trip_driver.go_unavailable
-    # trip_driver.available = false
-    # trip_driver.save
     trip = Trip.new(date: Date.current, cost: trip_cost, passenger_id: params[:passenger_id], driver_id: trip_driver.id)
 
     trip.save
