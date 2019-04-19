@@ -23,4 +23,12 @@ class Driver < ApplicationRecord
       return total / count
     end
   end
+
+  def go_available
+    return self.available = true
+  end
+
+  def go_unavailable
+    return self.available = false
+  end
 end
