@@ -1,3 +1,27 @@
 // Place all the styles related to the Homepages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#Welcome {
+  text-align: center;
+}
+
+#Manage a {
+  display: block;
+  text-align: center;
+  margin: 20px;
+  text-decoration: none;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 10px;
+  width: 100px;
+}
+
+#Manage {
+  display: flex;
+  justify-content: center;
+}
+
+a:visited {
+  text-decoration-color: none;
+}

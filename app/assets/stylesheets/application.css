@@ -23,8 +23,12 @@
    justify-content: space-between;
  }
 
- nav a {
+ a {
    text-decoration: none;
+ }
+
+ a, a:visited {
+   color: black;
  }
 
  nav ul {
@@ -77,4 +81,8 @@ nav ul li ul li {
 
 .nav-labels {
   padding: 1rem 2rem;
+}
+
+.nav-labels li a, .nav-labels li a:visited {
+  color: white;
 }
