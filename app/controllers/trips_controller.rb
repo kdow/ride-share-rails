@@ -7,7 +7,7 @@ class TripsController < ApplicationController
       driver = Driver.find_by(id: params[:driver_id])
       @trips = driver.trips
     else
-      @trips = Trip.all
+      @trips = Trip.paginate(page: params[:page], per_page: 20)
     end
   end
 

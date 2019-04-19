@@ -79,3 +79,5 @@ group :test do
   gem 'minitest-reporters'
   gem 'minitest-skip'
 end
+
+gem 'will_paginate', '~> 3.1.0'
