@@ -2,7 +2,6 @@
 
 <%= form_with url: add_trip_rating_path(@trip.id), method: :patch do |f| %>
   <% if !@trip.rating && (@trip.passenger_id && @trip.driver_id) %>
-    <%# <%= f.label :rating %>
     <%= f.number_field :rating, min: 1.0, max: 5.0, step: 1 %>
     <%= f.submit "Rate This Trip" %> 
   <% end %>
@@ -18,8 +17,8 @@
 
 <br>
 <br>
-<%= link_to "Edit Trip #{@trip.id}", edit_trip_path(@trip.id) %>
-<%= link_to "Delete Trip #{@trip.id}", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete this trip?"} %>
+<%= link_to "Edit Trip", edit_trip_path(@trip.id), class: "edit" %>
+<%= link_to "Delete Trip", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete this trip?"}, class: "delete" %>
 
 <table>
   <tr>
