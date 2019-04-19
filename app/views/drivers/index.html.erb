@@ -5,16 +5,14 @@
   <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>Edit</th>
-      <th>Delete</th>
     </tr>
 
   <% @drivers.each do |driver| %>
     <tr>
       <td><%= link_to "#{driver.id}", driver_path(driver.id) %></td>
       <td><%= link_to "#{driver.name}", driver_path(driver.id) %></td>
-      <td><%= link_to "Edit #{driver.name}", edit_driver_path(driver.id) %></td>
-      <td><%= link_to "Delete #{driver.name}", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure you want to delete this driver?"} %></td>
+      <td class="edit"><%= link_to "Edit", edit_driver_path(driver.id) %></td>
+      <td class="delete"><%= link_to "Delete", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure you want to delete this driver?"} %></td>
     </tr>
   <% end %>
 </table>
